@@ -64,7 +64,7 @@ const dataPortofolioMobile = [
 var tabMobile = document.getElementById('tab-mobile');
 var tabWeb = document.getElementById('tab-website');
 const cardPortofolio = document.getElementById('card-portofolio');
-let theme = localStorage.getItem("theme") || "light";
+let theme = localStorage.getItem("theme") || "dark";
 var themeId = document.getElementById("theme");
 
 const bodyTag = document.querySelector('body');
