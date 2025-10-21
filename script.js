@@ -1,34 +1,34 @@
 const dataPortofolioWeb = [
     {
-        image: './assets/porto/porto_web1.png',
-        title: 'FizzMate',
+        image: './assets/porto/image.png',
+        title: 'Todo App',
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam',
         github: 'https://github.com/Jong44/FizzMate',
         direct: 'https://fizz-mate.vercel.app/'
     },
     {
-        image: './assets/porto/porto_web2.png',
-        title: 'Taca Admin',
+        image: './assets/porto/image.png',
+        title: 'News Portal',
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam',
         github: 'https://github.com/Jong44/taxi_web',
         direct: 'https://taxi-web-psi.vercel.app/auth/login'
     },
     {
-        image: './assets/porto/porto_web3.png',
+        image: './assets/porto/image.png',
         title: 'Company Profile',
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam',
         github: '#',
         direct: 'https://www.megagigasolusindo.co.id/'
     },
     {
-        image: './assets/porto/porto_web4.png',
-        title: 'Wibflix',
+        image: './assets/porto/image.png',
+        title: 'LMS',
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam',
         github: 'https://github.com/Jong44/WibFlix',
         direct: 'https://wibflix.vercel.app/'
     },
     {
-        image: './assets/porto/porto_web5.png',
+        image: './assets/porto/image.png',
         title: 'Community Website',
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam',
         github: '#',
