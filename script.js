@@ -64,8 +64,7 @@ const dataPortofolioMobile = [
 var tabMobile = document.getElementById('tab-mobile');
 var tabWeb = document.getElementById('tab-website');
 const cardPortofolio = document.getElementById('card-portofolio');
-let theme = localStorage.getItem("theme") || "dark";
-var themeId = document.getElementById("theme");
+
 
 const bodyTag = document.querySelector('body');
 const mainTag = document.querySelector('main');
@@ -76,44 +75,29 @@ function renderPortofolio(){
     dataPortofolioWeb.forEach((item) => {
         cardPortofolio.innerHTML += `
             <div class="col-lg-4" data-aos="fade-up">
-                <div class="card glass p-4 mb-5">
+                <div class="card glass p-4 mb-5" id="card-item">
                     <img src="${item.image}" class="card-img-top" alt="...">
                     <h6 class="card-title fs-4 fw-bold mt-3">${item.title}</h6>
                     <p class="card-text fs-6">${item.description}</p>
-                    <div class="d-flex justify-content-end">
-                        <a href="${item.github}" class="card-link color-primary fs-5">
-                            <i class="fa-brands fa-github"></i>
-                        </a>
-                        <a href="${item.direct}" class="card-link color-primary fs-5">
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                    </div>
                 </div>
             </div>
         `;
     });
 }
 
-function renderPortofolioMobile(){
-    cardPortofolio.innerHTML = '';
-    dataPortofolioMobile.forEach((item) => {
-        cardPortofolio.innerHTML += `
-            <div class="col-lg-4" data-aos="fade-up">
-                <div class="card glass p-4 mb-5">
-                    <img src="${item.image}" class="card-img-top" alt="${item.title}">
-                    <h6 class="card-title fs-4 fw-bold mt-3">${item.title}</h6>
-                    <p class="card-text fs-6">${item.description}</p>
-                    <div class="d-flex justify-content-end">
-                        <a href="${item.github}" class="card-link color-primary fs-5">
-                            <i class="fa-brands fa-github"></i>
-                        </a>
-                        <a href="${item.direct}" class="card-link color-primary fs-5">
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        `;
+// when card item click add class active and remove active from other card item
+
+function handleClickCard() {
+    const cardItems = document.querySelectorAll('#card-item');
+    cardItems.forEach((item) => {
+        item.addEventListener('click', () => {
+            item.classList.add('card-item-active');
+            cardItems.forEach((otherItem) => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('card-item-active');
+                }
+            });
+        });
     });
 }
 
@@ -142,36 +126,7 @@ function getTime(){
     document.getElementById('time').innerText = time;
 }
 
-function changeTheme() {
-    theme = theme === "light" ? "dark" : "light";
-    localStorage.setItem("theme", theme);
-    setTheme(theme);
-}
-
-function setTheme(theme) {
-    if (theme === "light") {
-        mainTag.classList.remove('bg-dark');
-        navTag.classList.remove('bg-dark');
-        bodyTag.classList.remove('bg-dark');
-        themeId.innerHTML = '<i class="fa-solid fa-sun"></i>';
-        document.documentElement.style.setProperty("--background-color", "#f1f1f1");
-        document.documentElement.style.setProperty("--text-color", "#16161a");
-        mainTag.classList.add('bg-light');
-        navTag.classList.add('bg-light');
-        bodyTag.classList.add('bg-light');
-    } else {
-        mainTag.classList.remove('bg-light');
-        navTag.classList.remove('bg-light');
-        bodyTag.classList.remove('bg-light');
-        document.documentElement.style.setProperty("--background-color", "#16161a");
-        document.documentElement.style.setProperty("--text-color", "#fffffe");
-        themeId.innerHTML = '<i class="fa-solid fa-moon"></i>';
-        mainTag.classList.add('bg-dark');
-        navTag.classList.add('bg-dark');
-        bodyTag.classList.add('bg-dark');
-    }
-}
 
 setInterval(getTime, 1000);
 renderPortofolio();
-setTheme(theme);
+handleClickCard();
